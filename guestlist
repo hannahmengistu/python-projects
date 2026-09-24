@@ -1,0 +1,35 @@
+guest_list = []
+
+while True:
+    print("--- Guest List ---")
+    print("Type 'add' to add a new guest")
+    print("Type 'remove' to remove a  guest")
+    print("Type 'view' see the guest list")
+    print("Type 'exit' to quit the program")
+
+    choice = input("\nWhat would you like to do? ")
+    if choice == "exit":
+       break
+
+    elif choice == "add":
+        guest_add = input("\nEnter the guest's name: ")
+        guest_list.append(guest_add)
+        print(f"\n{guest_add} has been added to the guest list. ")
+
+    elif choice == "remove":
+        guest_remove = input("\nEnter the name you would like to remove: ")
+        if guest_remove in guest_list:
+            guest_list.remove(guest_remove)
+            print(f"\n{guest_remove} has been removed from the guest list")
+        else:
+            print(f"\n{guest_remove} is not on the guest list")
+            
+    elif choice == "view":
+        if len(guest_list) == 0:
+            print("\nGuest list is empty. ")
+        else:
+            for x in guest_list:
+                print(x)
+
+    else:
+        print("\nChoice is not valid")
