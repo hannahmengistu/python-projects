@@ -1,0 +1,56 @@
+class bankAccount:
+    def __init__(self, name, total_amount):
+        self.name = name
+        self.total_amount = total_amount
+
+    def check_money(self):
+       print(f"You have ${self.total_amount} in your {self.name}")
+
+    def deposit_money(self, money):
+        self.total_amount = money + self.total_amount
+        print("Done")
+
+    def spend_money(self, money):
+        if self.total_amount < money:
+            print("You have low funds")
+        else:
+            self.total_amount = self.total_amount - money 
+            print("Done")
+
+savings = bankAccount("Savings Account", 0)
+checking = bankAccount("Checking Account", 0)
+
+while True:
+    
+    print("\nPlease choose between options 1 - 4: ")
+    print("\n1. Print available money on your account")
+    print("2. Deposit money")
+    print("3. Withdraw money")
+    print("4. Exit")
+
+    choice = int(input("\nWhat would you like to do? "))
+
+    if choice == 1:
+        checking.check_money()
+        savings.check_money()
+
+    elif choice == 2:
+        account = input("Which account would you like to store it in? ")
+        money = int(input("How much would you like to deposit? "))
+        if account == "checking":
+            checking.deposit_money(money)
+        else:
+            savings.deposit_money(money)
+
+    elif choice == 3:
+        withdrawl_choice = input("Which account would you like to withdraw from? ")
+        withdrawl_amount = int(input("How much money would you like to withdraw? "))
+        if withdrawl_choice == checking:
+            checking.spend_money(withdrawl_amount)
+        else:
+            savings.spend_money(withdrawl_amount)
+    else:
+        print("goodbye!")
+        break
+
+    
