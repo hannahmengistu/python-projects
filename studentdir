@@ -1,0 +1,31 @@
+student_1 = {"name" : "Jane", "age" : "21", "city" : "Washington", "grade" : "A"}
+
+student_2 = {"name" : "John", "age" : "19", "city" : "Denver", "grade" : "B"}
+
+while True:
+    print("1. Display all studnet information")
+    print("2. Modify a student's grade")
+    print("3. Exit the program")
+    print("Enter your choice")
+
+    user_input = int(input("Enter your choice: 1, 2 or 3: "))
+
+    if user_input == 1:
+        #1
+        print(f"Student 1: {student_1['name']} is {student_1['age']} from {student_1['city']} has a {student_1['grade']} in the class")
+        print(f"Student 2: {student_2['name']} is {student_2['age']} from {student_2['city']} has a {student_2['grade']} in the class")
+
+    elif user_input == 2:
+        user_input2 = int(input("Enter the student number (1 or 2): "))
+        user_input3 = input("Enter the new grade: ")
+        if user_input2 == 1:
+            student_1["grade"] = user_input3
+        elif user_input2 == 2:
+            student_2["grade"] = user_input3
+        else:
+            print("User picked is invalid") 
+
+    else:
+        print("Goodbye")
+        break
+        
