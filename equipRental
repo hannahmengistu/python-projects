@@ -1,0 +1,37 @@
+name = input("What's your name? ").strip().title()
+
+equipment = input("What equipment are you renting? ").strip().lower()
+
+dailyRate = 0
+
+if equipment == "camera":
+    dailyRate = 25
+elif equipment == "projector":
+    dailyRate = 40
+elif equipment == "microphone":
+    dailyRate = 15
+else:
+    print("Unsupported Equipment")
+    
+
+if dailyRate > 0:
+    days = int(input("How many days are you renting for? "))
+
+    if days < 1:
+        print("Invalid duration")
+    else:
+        subtotal = dailyRate * days
+        discountAmount = 0
+
+        if days >= 7:
+            discountAmount = subtotal * 0.10
+
+        total = subtotal - discountAmount
+
+        print(f"{name} is renting {equipment} for {days} days")
+        print(f"The subtotal is ${subtotal:.2f}")
+        print(f"${discountAmount:.2f} has been discounted")
+        print(f"The total is ${total:.2f}")
+
+else:
+    print("goodbye")
