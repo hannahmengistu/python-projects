@@ -1,0 +1,26 @@
+baseFee = 4
+pricePerPound = 1.50
+
+packageDetails = []
+
+sender = input("\nPlease enter your name: ").strip().title()
+
+recipient = input("Please enter recipient's name: ").strip().title()
+
+destination = input("Enter the destination of your package: ").strip().title()
+
+weight = float(input("Enter the weight of your package: "))
+
+packageDetails.append(sender)
+packageDetails.append(recipient)
+packageDetails.append(destination)
+packageDetails.append(weight)
+
+shippingCost = baseFee + (weight * pricePerPound)
+
+print("\n---SHIPPING LABEL---")
+print(f"From: {packageDetails[0]}")
+print(f"To: {packageDetails[1]}")
+print(f"Destination: {packageDetails[2]}")
+print(f"Weight: {packageDetails[3]} lbs")
+print(f"Shipping cost: ${shippingCost:.2f}")
